@@ -35,39 +35,68 @@ if (isset($_POST["btnOK"])) {
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Lab - Login</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-family: Microsoft JhengHei;
+    }
+
+    .title {
+      margin: 0;
+    }
+
+    .table td {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
 </head>
 
 <body>
   <form id="form1" name="form1" method="post" action="login.php">
-    <table width="300" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#F2F2F2">
-      <tr>
-        <td colspan="2" align="center" bgcolor="#CCCCCC">
-          <p color="#FFFFFF">會員系統 - 登入</p>
-        </td>
-      </tr>
-      <tr>
-        <td width="80" align="center" valign="baseline">帳號</td>
-        <td valign="baseline">
-          <input type="text" name="txtUserName" id="txtUserName" />
-        </td>
-      </tr>
-      <tr>
-        <td width="80" align="center" valign="baseline">密碼</td>
-        <td valign="baseline">
-          <input type="password" name="txtPassword" id="txtPassword" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center" bgcolor="#CCCCCC">
-          <input type="submit" name="btnOK" id="btnOK" value="登入" />
-          <input type="reset" name="btnReset" id="btnReset" value="重設" />
-          <input type="submit" name="btnHome" id="btnHome" value="回首頁" />
-        </td>
-      </tr>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="bg-primary text-light">
+          <td colspan="2">
+            <p class="title">會員系統 - 登入</p>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>帳號</td>
+          <td>
+            <input type="text" name="txtUserName" id="txtUserName" />
+          </td>
+        </tr>
+        <tr>
+          <td>密碼</td>
+          <td>
+            <input type="password" name="txtPassword" id="txtPassword" />
+          </td>
+        </tr>
+        <tr class="bg-primary text-light">
+          <td colspan="2">
+            <input class="btn btn-warning" type="submit" name="btnOK" id="btnOK" value="登入" />
+            <input class="btn btn-warning" type="reset" name="btnReset" id="btnReset" value="重設" />
+            <input class="btn btn-warning" type="submit" name="btnHome" id="btnHome" value="回首頁" />
+          </td>
+        </tr>
+      </tbody>
     </table>
+    <p class="text-danger"><?= $ErrorMessage ?></p>
   </form>
-  <p align="center" color="#00ff00"><?= $ErrorMessage ?></p>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>
