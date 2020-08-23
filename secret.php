@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["userName"])) {
+if ($_SESSION["userName"] == "Guest") {
   $_SESSION["lastPage"] = "secret.php";
   header("Location: login.php");
   exit();
@@ -8,7 +8,7 @@ if (!isset($_SESSION["userName"])) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -25,7 +25,7 @@ if (!isset($_SESSION["userName"])) {
       </td>
     </tr>
     <tr>
-      <td align="center" valign="baseline">This page for member only.</td>
+      <td align="center" valign="baseline">你好，<?= $_SESSION["userName"] ?></td>
     </tr>
     <tr>
       <td align="center" bgcolor="#CCCCCC"><a href="index.php">回首頁</a></td>

@@ -5,9 +5,17 @@ if (isset($_SESSION["userName"]))
 else
   $sUserName = "Guest";
 
+if ($sUserName == "Guest") {
+  $_SESSION["LoginStatus"] = "登入";
+  $_SESSION["getLoginStatus"] = "";
+} else {
+  $_SESSION["LoginStatus"] = "登出";
+  $_SESSION["getLoginStatus"] = "?logout=1";
+}
+
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -24,17 +32,13 @@ else
       </td>
     </tr>
     <tr>
-
-      <?php if ($sUserName == "Guest") : ?>
-        <td align="center" valign="baseline"><a href="login.php">登入</a>
-        <?php else : ?>
-        <td align="center" valign="baseline"><a href="login.php?logout=1">登出</a>
-        <?php endif; ?>
-
-        | <a href="secret.php">會員專用頁</a></td>
+      <td align="center" valign="baseline">
+        <a href="login.php<?= $_SESSION["getLoginStatus"] ?>"><?= $_SESSION["LoginStatus"] ?></a>
+        | <a href="secret.php">會員專用頁</a>
+      </td>
     </tr>
     <tr>
-      <td align="center" bgcolor="#CCCCCC"><?php echo "Welcome! " . $sUserName ?> </td>
+      <td align="center" bgcolor="#CCCCCC"><?= "Welcome! " . $sUserName ?> </td>
     </tr>
   </table>
 
